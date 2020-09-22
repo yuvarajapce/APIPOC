@@ -1,0 +1,235 @@
+{
+	"info": {
+		"_postman_id": "0870f59f-5a31-4fba-b81c-f323ea697670",
+		"name": "Employee_List",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "POST_CreateNewEmployee",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "749fb53c-f53b-4fb9-8138-bf72a7e2e65e",
+						"exec": [
+							"pm.test(\"Status code is 200, Test Case Passed\" , function(){\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							" \r",
+							"var nm = pm.variables.get(\"name\");\r",
+							"var sa = pm.variables.get(\"salary\");\r",
+							"var ag = pm.variables.get(\"age\");\r",
+							" \r",
+							"pm.test(\"Check Name \" +nm, function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData.name).to.equals(nm);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Check Salary \" +nm, function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData.salary).to.sa\r",
+							"});\r",
+							" \r",
+							" pm.test(\"Check Age \" +pwd, function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData.age).to.ag\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"name\":\"{{name}}\",\r\n\"salary\":\"{{salary}}\",\"age\":\"{{age}}\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://dummy.restapiexample.com/api/v1/create",
+					"protocol": "http",
+					"host": [
+						"dummy",
+						"restapiexample",
+						"com"
+					],
+					"path": [
+						"api",
+						"v1",
+						"create"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET_AllEmployee",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "69bab4a4-11af-4012-b607-4eb917409612",
+						"exec": [
+							"pm.test('Status is 200 response, Testcase Passed', () => {\r",
+							"  pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {}
+					}
+				},
+				"url": {
+					"raw": "http://dummy.restapiexample.com/api/v1/employees",
+					"protocol": "http",
+					"host": [
+						"dummy",
+						"restapiexample",
+						"com"
+					],
+					"path": [
+						"api",
+						"v1",
+						"employees"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "PUT_UpdateEmployee",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "26060ea1-8f2b-487a-a649-19ae1d763355",
+						"exec": [
+							"pm.test('Status is 200 response, Test case Passed', () => {\r",
+							"  pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"name\":\"test\",\"salary\":\"123\",\"age\":\"29\"}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://dummy.restapiexample.com/api/v1/update/21",
+					"protocol": "http",
+					"host": [
+						"dummy",
+						"restapiexample",
+						"com"
+					],
+					"path": [
+						"api",
+						"v1",
+						"update",
+						"21"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DELETE_Employee",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "c3feee96-a342-455e-b093-b6c77f3c371b",
+						"exec": [
+							"pm.test('Status is 200 response , Testcase Passed', () => {\r",
+							"  pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"name\":\"test\",\"salary\":\"123\",\"age\":\"29\"}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://dummy.restapiexample.com/api/v1/delete/2",
+					"protocol": "http",
+					"host": [
+						"dummy",
+						"restapiexample",
+						"com"
+					],
+					"path": [
+						"api",
+						"v1",
+						"delete",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Billing_Info",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": ""
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}
